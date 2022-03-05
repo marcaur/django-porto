@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content%}
+{% block extend_footer %}{% endblock %}
+
+    <section>
+      <div class="innerPageBannerCol">
+        <div class="container">
+          <div class="row g-4 g-md-3  align-items-center">
+            <div class="col-md-auto">
+              <div class="bannerContent">
+                <h1 class="xlTitle pb-md-3">{{blog.name}}</h1>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-auto">
+              <div class="authorCol">
+                <h4 class="smTitle pb-3">{{blog.author}}</h4>
+              </div>
+            </div>
+            <div class="col-md">
+              <h4 class="smTitle pb-3">{{blog.timestamp}}</h4>
+            </div>
+          </div>
+          <!--Body-->
+          <div class="row">
+            <div class="col-md-auto">
+                <div class="sectionSpaceSm">
+                  <div class="container">
+                    <p> {{ blog.body | safe }} </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!--endbody-->
+        </div>
+      </div>
+    </section>
+{% endblock %}

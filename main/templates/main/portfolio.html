@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- SEO Blocks -->
+
+{% block title %}Contact Elliott {% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- END SEO Blocks -->
+
+{% block content %}
+
+<section>
+  <div class="innerPageBannerCol">
+    <div class="container">
+      <div class="row g-4 g-md-3  align-items-center">
+        <div class="col-md">
+          <div class="bannerContent">
+            <h1 class="xlTitle pb-md-3">Check out my recent projects below</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sectionSpace">
+    <div class="container">
+      <div class="portfolioCol">
+        <div class="row pb-3">
+          <div class="col">
+            <h4 class="smText regular">Recent Posts</h4>
+          </div>
+          <div class="col-auto">
+            <a href="{% url 'main:blogs' %}" class="simpleLink">View all</a>
+          </div>
+        </div>
+        {% for y in blogs %}
+        {% if y.is_active %}
+        <div class="portfolioCard">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-auto">
+              <div class="portfolioImgCol">
+                <a href="javascript:void(0)"><img src="images/work-img.jpg" alt="..."></a>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="portfolioContentCol">
+                <h4 class="lgTitle"><a href="{{y.get_absolute_url}}">{{y.name}}</a></h4>
+                <ul class="portfolioOption">
+                  <li><span class="dateLbl">2021</span></li>
+                </ul>
+                <p> {{y.description}} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================
+  End Content
+  ================================= -->
+  
+  {% endblock %}
+  
